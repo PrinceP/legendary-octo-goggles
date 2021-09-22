@@ -170,7 +170,18 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/Princep/legendary-octo-goggles.git
    ```
-2. Develop the template - Open Count_them_up.ipynb in colab
+2. Develop the template
+
+
+[Colab](Count_them_up.ipynb) offers customizable solutions for images.
+
+![Auto.png](images/autocrop.png)                                                               | ![Result.png](images/Unknown.png)
+:------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------:
+***OpenCV***: *Built-in fast Hough transform inference for processing. Modify radius for size* | ***Result***: *Each circle is properly detected, Easy front view can be taken*
+![manual.png](images/manualcrop.png)                                                             | ![Result.png](images/Unknown1.png)
+***Manual***: *Select a area which seems to be repeatable area*            | ***Area count = 4***: *Can be an area which contains tags or atleast 3 pipes*
+
+
 
 3. Save the template image
 
