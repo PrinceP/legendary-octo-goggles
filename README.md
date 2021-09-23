@@ -1,7 +1,5 @@
 
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 <!-- PROJECT LOGO -->
@@ -183,26 +181,16 @@ To get a local copy up and running follow these simple steps.
 
 
 
-3. Save the template image
+3. Save the template image with the decided count
 
-4. Use mediapipe
 
-```bash
-cd mediapipe
-# Switch to OpenCV 4
-sed -i -e 's:3.4.3/opencv-3.4.3:4.0.1/opencv-4.0.1:g' WORKSPACE
-sed -i -e 's:libopencv_java3:libopencv_java4:g' third_party/opencv_android.BUILD
+4. Matching Your Own Template Images
 
-# Build and install app
-bazel build -c opt --config=android_arm64 mediapipe/examples/android/src/java/com/google/mediapipe/apps/templatematchingcpu
-adb install -r bazel-bin/mediapipe/examples/android/src/java/com/google/mediapipe/apps/templatematchingcpu/templatematchingcpu.apk
-```
-   
-5. Matching Your Own Template Images
+*  Put all template images in a single directory called templates
 
-*   Step 1: Put all template images in a single directory.
+![Folder.png](images/folder.png)
 
-*   Step 2: To build the index file for all templates in the directory, run
+*  To build the index file for all templates in the directory, run
 
     ```bash
     bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 \
@@ -217,13 +205,29 @@ adb install -r bazel-bin/mediapipe/examples/android/src/java/com/google/mediapip
 
     The output index file includes the extracted KNIFT features.
 
-*   Step 3: Replace
+
+5. Use mediapipe
+
+
+*   Replace
     [mediapipe/models/knift_index.pb](https://github.com/google/mediapipe/tree/master/mediapipe/models/knift_index.pb)
     with the index file you generated, and update
     [mediapipe/models/knift_labelmap.txt](https://github.com/google/mediapipe/tree/master/mediapipe/models/knift_labelmap.txt)
-    with your own template names.
+    with your own template names with count for the tempate.
 
-*   Step 4: Build and run the app
+
+```bash
+cd mediapipe
+# Switch to OpenCV 4
+sed -i -e 's:3.4.3/opencv-3.4.3:4.0.1/opencv-4.0.1:g' WORKSPACE
+sed -i -e 's:libopencv_java3:libopencv_java4:g' third_party/opencv_android.BUILD
+
+# Build and install app
+bazel build -c opt --config=android_arm64 mediapipe/examples/android/src/java/com/google/mediapipe/apps/templatematchingcpu
+adb install -r bazel-bin/mediapipe/examples/android/src/java/com/google/mediapipe/apps/templatematchingcpu/templatematchingcpu.apk
+```   
+
+*   Build and run the app
 
 
 <!-- USAGE EXAMPLES -->
