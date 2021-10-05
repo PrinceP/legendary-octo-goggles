@@ -61,6 +61,9 @@
 ## About The Project
 
 <!-- [[Demo]](./images/demo.gif) -->
+#### Won 3rd Place in [Rally to Tally Hackathon](https://www.hackerearth.com/challenges/hackathon/mitsubishi-americas-hackathon/#overview)
+
+<img src="images/hackathon.png" alt="Winner">
 
 ### **Design Solution**
 
@@ -93,21 +96,18 @@
 
 
 ### **Workflow**
-1. Land vehicle robots to collect recordings of a particular stack.
 
-2. Recording to done in one direction, only front of stack will be neccessary.  
+1. Land vehicle bot to collect recordings of a particular stack in the field.
+2. Recording to done in one direction, only front of stack will be necessary.
+3. Only one stack of pipes should be taken for each recording. This ensures that the type of pipe is different for different templates.
+4. Take the key frames from each part of recording.(Where the pipe front is visible, we need to cover all possible types of covering on pipes here)
+5. Develop templates of each pipe: Circular region template - with tag or cap or normal.
+6. Identify each count of each image in the scene by putting a number on each template.
+7. For new recording if, the old templates can be used then the accuracy of model increases over time
 
-2. Only one stack of pipes should be taken for each recording.
+Deployment is made on an android app. Now we can just walk around the pipe field in a given direction and it will detect the stack with the given count. The idea is that we are given with list of detections in one direction, and the app should keep a track of detections.
 
-2. Take the key frames from each part of recording.(Where the pipe front is visible, at least 10 images for each recording)
-
-2. Develop templates of each pipe: Circular region template, With tag or cap  template.
-
-2. Identify each count of each image in the scene by putting a number.
-
-2. Now keep adding count as the video runs in one direction.
-
-2. *For new recording if, the old templates can be used then the accuracy of model increases over time*
+Final count = Number of detections * Template count
 
 
 
